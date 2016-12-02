@@ -1,0 +1,15 @@
+html, body {
+	font-family: 'Roboto','sans-serif';
+	padding: 0;
+	margin: 0;
+	background-image:url("images/background.JPG");
+	color: white;
+	background-attachment:fixed;
+}
+
+#header {
+	font-size: 60px;
+	//color: black;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}

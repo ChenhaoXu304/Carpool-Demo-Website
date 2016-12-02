@@ -1,0 +1,47 @@
+CREATE TABLE users 
+(
+id INT NOT NULL AUTO_INCREMENT,
+username varchar(30) NOT NULL,
+hashed_password varchar(255) NOT NULL,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE requests 
+(
+id INT NOT NULL AUTO_INCREMENT,
+travel_time TIMESTAMP NOT NULL,
+start_id INT NOT NULL,
+dest_id INT NOT NULL,
+time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+remark varchar(200) NULL DEFAULT NULL,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE places 
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(30) NOT NULL,
+lat DOUBLE NOT NULL,
+lon DOUBLE NOT NULL,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE requests_users
+(
+request_id INT NOT NULL,
+user_id INT NOT NULL
+);
+
+CREATE TABLE messages
+(
+id INT NOT NULL AUTO_INCREMENT,
+content TEXT,
+from_id INT NOT NULL,
+to_id INT NOT NULL,
+sent_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (id)
+);
+
+ALTER TABLE users ADD phone INT NULL DEFAULT NULL;
+ALTER TABLE requests ADD status TINYINT DEFAULT 1;
+

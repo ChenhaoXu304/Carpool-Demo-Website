@@ -1,0 +1,113 @@
+html, body {
+	font-family: 'Roboto','sans-serif';
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+#right-panel {
+	font-family: 'Roboto','sans-serif';
+	line-height: 30px;
+	background-color: white;
+	padding: 20px;
+	margin: 20px;
+	padding-top: 0px;
+	border-width: 2px;
+	width: 26%;
+	height: 490px;
+	text-align: left;
+	position: absolute;
+	top: 65px;
+	right: 10px;
+	border-radius: 20px;
+	background-color: rgba(110, 16, 147, 0.7);
+}
+
+#right-panel select, #right-panel input {
+	font-size: 15px;
+}
+
+#right-panel select {
+	width: 100%;
+}
+
+#right-panel i {
+	font-size: 12px;
+}
+
+#datepicker {
+	margin-bottom: 20px;
+}
+
+#number {
+	margin-bottom: 20px;
+}
+
+#map {
+	margin-top: 70px;
+	height: 91%;
+	float: left;
+	width: 100%;
+}
+
+#directions-panel {
+	margin-top: 10px;
+	background-color: #FFEE77;
+	padding: 10px;
+}
+
+.ui-datepicker {
+	background: #d6c3dd;
+	border-radius: 4px;
+}
+
+#submit {
+	background-color: #f9f2fc;
+	margin-left: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 200px;
+	border: 1px solid gray;
+	height: 50px;
+	font-size: 30px; 	
+}
+
+#requestDisplay {
+	color: gray;
+	background-color: #f9f2fc;
+	height: 200px;
+	padding: 15px;
+	width: 230px;
+	border-radius: 10px 10px 0px 10px;
+	overflow: scroll;
+	position: absolute;
+	top: 120px;
+	left: 20px;
+	display: none;
+}
+
+#hide {
+	float: right;
+	font-size: 10px;
+	position: relative;
+	top: -7px;
+}
+
+#hide a {
+	text-decoration: none;
+	color: gray;
+}
+
+#showSuggestions {
+	float: right;
+	font-size: 10px;
+	position: relative;
+	top: -70px;
+}
+
+#showSuggestions a {
+	text-decoration: none;
+	color: white;
+}
+

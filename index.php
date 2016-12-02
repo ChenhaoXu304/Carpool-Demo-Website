@@ -4,67 +4,21 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Waypoints in directions</title>
-    <style>
-      #right-panel {
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        background-color: white;
-        padding: 20px;
-        margin: 20px;
-        border-width: 2px;
-        width: 26%;
-        height: 500px;
-        float: left;
-        text-align: left;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        border-radius: 20px;
-        background-color: rgba(110, 16, 147, 0.3);
-      }
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-      #right-panel select, #right-panel input {
-        font-size: 15px;
-      }
-
-      #right-panel select {
-        width: 100%;
-      }
-
-      #right-panel i {
-        font-size: 12px;
-      }
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        color: white;
-      }
-      #map {
-        height: 100%;
-        float: left;
-        width: 100%;
-      }
-      
-      #directions-panel {
-        margin-top: 10px;
-        background-color: #FFEE77;
-        padding: 10px;
-      }
-      
-      #title {
-      	color: black;
-      }
-    </style>
   </head>
   <body>
     <div id="map">
     </div>
     <div id="right-panel">
 		<div>
+		<form action="create_request.php" method="POST">
 		<h1>New Trip</h1>
 		<b>Start:</b>
-		<select id="start">
+		<select name="start" id="start">
 		  <option value="nyu abu dhabi saadiyat island">NYUAD Welcome center</option>
 		  <option value="embassy of the people's republic of china - al mushrif - abu dhabi">Chinese Embassy Abu Dhabi</option>
 		  <option value="embassy of the united states, embassies district, abu dhabi">United States Embassy Abu Dhabi</option>
@@ -73,7 +27,7 @@
 		</br>
 		</br>
 		<b>End:</b>
-		<select id="end">
+		<select name="end" id="end">
 		  <option value="nyu abu dhabi saadiyat island">NYUAD Welcome Center</option>
 		  <option value="embassy of the people's republic of china - al mushrif - abu dhabi">Chinese Embassy Abu Dhabi</option>
 		  <option value="Embassy of the United States, Embassies District, Abu Dhabi">United States Embassy Abu Dhabi</option>
@@ -81,8 +35,11 @@
 		</select>
 		</br>
 		</br>
+		<b>Date: <input name="date" type="text" id="datepicker"></b>
+		</br>
+		</br>
 		<b>Time:</b>
-		<select id="end">
+		<select name="time" id="end">
 		  <option value="12:00 AM">12:00 AM</option>
 		  <option value="12:30 AM">12:30 AM</option>
 		  <option value="01:00 AM">01:00 AM</option>
@@ -135,14 +92,15 @@
 		</br>
 		</br>
 		<b>Available Seats (including yourself)</b>
-		<select id="end">
+		<select name="available_seats" id="end">
 		  <option value="2">2</option>
 		  <option value="3">3</option>
 		  <option value="4">4</option>
 		  <option value="5">5</option>
 		</select>
 		</br>
-		<input type="submit" id="submit">
+		<input type="submit" name="submit" id="submit" value="Create">
+		</form>
 		</div>
 		
 	   <!-- <div id="directions-panel"></div> -->
@@ -168,6 +126,10 @@
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
       }
+      
+      $( function() {
+    	$( "#datepicker" ).datepicker();
+  		} );
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         /*var waypts = [];
